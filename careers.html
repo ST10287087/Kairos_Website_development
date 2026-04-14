@@ -7,7 +7,7 @@ body {
     font-family: 'Alice', serif;
     background: white;
     overflow-x: hidden;
-    padding-top: 80px; /* space for fixed navbar */
+    padding-top: 80px; 
 }
 
 /* NAVBAR */
@@ -15,7 +15,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; /* reduced padding to fit all links */
+    padding: 15px 30px; 
     background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
@@ -28,8 +28,8 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 30px; /* space between links */
-    flex-wrap: nowrap; /* no wrapping, keeps them in one line */
+    gap: 30px; 
+    flex-wrap: nowrap; 
 }
 
 .nav-links a {
@@ -37,7 +37,7 @@ body {
     color: black;
     font-size: 18px;
     position: relative;
-    white-space: nowrap; /* prevent text from breaking */
+    white-space: nowrap; 
 }
 
 /* underline active page */
@@ -65,6 +65,168 @@ body {
         padding: 15px 20px;
     }
 }
+
+/* HERO SECTION */
+.hero {
+    background: #1f6796;
+    color: white;
+    padding: 80px 40px 120px;
+    border-bottom-left-radius: 60% 20%;
+    border-bottom-right-radius: 60% 20%;
+}
+.hero h1 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 60px;
+    margin: 0;
+    line-height: 1.2;
+	  letter-spacing: 2px;
+}
+
+.hero span {
+    color: black;
+}
+
+.hero p {
+    margin-top: 30px;
+    font-size: 20px;
+    max-width: 600px;
+}
+
+/* FORM SECTION */
+
+.form {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.form-section {
+    text-align: center;
+    margin-top: -100px;
+}
+
+.form-box {
+    background: #e9ecef;
+    width: 70%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 50px 60px;
+    border-radius: 35px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: 'Inter', sans-serif;
+	   border: 2px solid rgba(0,0,0,0.08);
+}
+
+.h2 {
+    text-align: center;
+    padding: 60px 20px;
+	 font-weight: 200;
+}
+
+.at-kairos {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+	 font-weight: 200;
+}
+
+.at-kairos .at {
+    color: black;
+}
+
+.at-kairos .k {
+    color: #6D0101; 
+}
+
+.at-kairos .airos {
+    color: #1268A3; 
+}
+
+.at-kairos .text {
+    color: black;
+}
+/* FILE INPUT GRID */
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.upload-box {
+    border: 1.5px dashed #bbb;
+    padding: 30px 20px;
+    font-size: 14px;
+    background: white;
+    border-radius: 8px;
+    color: #666;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 14px 12px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* ROW SPACING */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+/* FULL WIDTH INPUT SPACING */
+.form-box > input {
+    margin-top: 15px;
+}
+
+/* BUTTON */
+.submit-btn {
+    background: #b30000;
+    color: white;
+    padding: 14px 50px;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+    letter-spacing: 1px;
+	 width: 400px;
+}
+.footer {
+    background: #8B0000;
+    color: white;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+    position: relative;        
+}
+
+.contact {
+    margin-top: 20px;
+    text-align: left;
+	font-size: 20px;
+}
+
+/* Move copyright to bottom right */
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
 </style>
 <head>
     <title>Careers</title>
@@ -83,7 +245,299 @@ body {
     </div>
 </div>
 
-<h1>Careers Page</h1>
+<!-- HERO -->
+<div class="hero">
+    <h1>
+        INTERESTED IN<br>
+        JOINING <span>KAIROS?</span>
+    </h1>
+    <p>
+        We offer you a chance to get the experience and opportunity to pursue your career in language teaching
+    </p>
+</div>
 
+<!-- FORM -->
+
+<section class="form">
+<div class="form-section">
+
+<h2 class="at-kairos">
+<span class="at">START YOUR </span>
+<span class="k">K</span><span class="airos">AIROS </span>
+<span class="text">TRAINING TODAY!</span>
+</h2>
+
+<div class="form-box">
+
+<form action="https://formsubmit.co/deshalinnaicker@gmail.com" method="POST" enctype="multipart/form-data">
+
+   <div class="upload-grid">
+
+    <label class="upload-box">
+        Intro Video *
+        <input type="file" name="intro_video" required>
+    </label>
+
+    <label class="upload-box">
+        CV / Resume *
+        <input type="file" name="cv" required>
+    </label>
+
+    <label class="upload-box">
+        Degree / Certificates *
+        <input type="file" name="certificates" required>
+    </label>
+
+    <label class="upload-box">
+        Headshot Photos *
+        <input type="file" name="headshot" required>
+    </label>
+
+</div>
+
+    <input type="text" name="name" placeholder="Name *" required>
+
+    <div class="row">
+        <input type="email" name="email" placeholder="Email Address *" required>
+        <input type="text" name="phone" placeholder="Phone Number *" required>
+    </div>
+
+    <input type="text" name="street_address" placeholder="Street Address *">
+    <input type="text" name="apartment" placeholder="Apartment, Suite, etc *">
+
+    <div class="row">
+        <input type="text" name="city" placeholder="City *">
+        <input type="text" name="state" placeholder="State / Province *">
+    </div>
+
+    <div class="row">
+        <input type="text" name="zip" placeholder="ZIP / Postal Code *">
+
+        <select name="country" required>
+            <option disabled selected>Select Country</option>
+           <option>Select Country</option>
+<option>Afghanistan</option>
+<option>Albania</option>
+<option>Algeria</option>
+<option>Andorra</option>
+<option>Angola</option>
+<option>Antigua and Barbuda</option>
+<option>Argentina</option>
+<option>Armenia</option>
+<option>Australia</option>
+<option>Austria</option>
+<option>Azerbaijan</option>
+<option>Bahamas</option>
+<option>Bahrain</option>
+<option>Bangladesh</option>
+<option>Barbados</option>
+<option>Belarus</option>
+<option>Belgium</option>
+<option>Belize</option>
+<option>Benin</option>
+<option>Bhutan</option>
+<option>Bolivia</option>
+<option>Bosnia and Herzegovina</option>
+<option>Botswana</option>
+<option>Brazil</option>
+<option>Brunei</option>
+<option>Bulgaria</option>
+<option>Burkina Faso</option>
+<option>Burundi</option>
+<option>Cambodia</option>
+<option>Cameroon</option>
+<option>Canada</option>
+<option>Cape Verde</option>
+<option>Central African Republic</option>
+<option>Chad</option>
+<option>Chile</option>
+<option>China</option>
+<option>Colombia</option>
+<option>Comoros</option>
+<option>Congo (Congo-Brazzaville)</option>
+<option>Costa Rica</option>
+<option>Croatia</option>
+<option>Cuba</option>
+<option>Cyprus</option>
+<option>Czechia (Czech Republic)</option>
+<option>Denmark</option>
+<option>Djibouti</option>
+<option>Dominica</option>
+<option>Dominican Republic</option>
+<option>Ecuador</option>
+<option>Egypt</option>
+<option>El Salvador</option>
+<option>Equatorial Guinea</option>
+<option>Eritrea</option>
+<option>Estonia</option>
+<option>Eswatini</option>
+<option>Ethiopia</option>
+<option>Fiji</option>
+<option>Finland</option>
+<option>France</option>
+<option>Gabon</option>
+<option>Gambia</option>
+<option>Georgia</option>
+<option>Germany</option>
+<option>Ghana</option>
+<option>Greece</option>
+<option>Grenada</option>
+<option>Guatemala</option>
+<option>Guinea</option>
+<option>Guinea-Bissau</option>
+<option>Guyana</option>
+<option>Haiti</option>
+<option>Honduras</option>
+<option>Hungary</option>
+<option>Iceland</option>
+<option>India</option>
+<option>Indonesia</option>
+<option>Iran</option>
+<option>Iraq</option>
+<option>Ireland</option>
+<option>Israel</option>
+<option>Italy</option>
+<option>Jamaica</option>
+<option>Japan</option>
+<option>Jordan</option>
+<option>Kazakhstan</option>
+<option>Kenya</option>
+<option>Kiribati</option>
+<option>Kuwait</option>
+<option>Kyrgyzstan</option>
+<option>Laos</option>
+<option>Latvia</option>
+<option>Lebanon</option>
+<option>Lesotho</option>
+<option>Liberia</option>
+<option>Libya</option>
+<option>Liechtenstein</option>
+<option>Lithuania</option>
+<option>Luxembourg</option>
+<option>Madagascar</option>
+<option>Malawi</option>
+<option>Malaysia</option>
+<option>Maldives</option>
+<option>Mali</option>
+<option>Malta</option>
+<option>Marshall Islands</option>
+<option>Mauritania</option>
+<option>Mauritius</option>
+<option>Mexico</option>
+<option>Micronesia</option>
+<option>Moldova</option>
+<option>Monaco</option>
+<option>Mongolia</option>
+<option>Montenegro</option>
+<option>Morocco</option>
+<option>Mozambique</option>
+<option>Myanmar (Burma)</option>
+<option>Namibia</option>
+<option>Nauru</option>
+<option>Nepal</option>
+<option>Netherlands</option>
+<option>New Zealand</option>
+<option>Nicaragua</option>
+<option>Niger</option>
+<option>Nigeria</option>
+<option>North Korea</option>
+<option>North Macedonia</option>
+<option>Norway</option>
+<option>Oman</option>
+<option>Pakistan</option>
+<option>Palau</option>
+<option>Palestine</option>
+<option>Panama</option>
+<option>Papua New Guinea</option>
+<option>Paraguay</option>
+<option>Peru</option>
+<option>Philippines</option>
+<option>Poland</option>
+<option>Portugal</option>
+<option>Qatar</option>
+<option>Romania</option>
+<option>Russia</option>
+<option>Rwanda</option>
+<option>Saint Kitts and Nevis</option>
+<option>Saint Lucia</option>
+<option>Saint Vincent and the Grenadines</option>
+<option>Samoa</option>
+<option>San Marino</option>
+<option>Sao Tome and Principe</option>
+<option>Saudi Arabia</option>
+<option>Senegal</option>
+<option>Serbia</option>
+<option>Seychelles</option>
+<option>Sierra Leone</option>
+<option>Singapore</option>
+<option>Slovakia</option>
+<option>Slovenia</option>
+<option>Solomon Islands</option>
+<option>Somalia</option>
+<option>South Africa</option>
+<option>South Korea</option>
+<option>South Sudan</option>
+<option>Spain</option>
+<option>Sri Lanka</option>
+<option>Sudan</option>
+<option>Suriname</option>
+<option>Sweden</option>
+<option>Switzerland</option>
+<option>Syria</option>
+<option>Taiwan</option>
+<option>Tajikistan</option>
+<option>Tanzania</option>
+<option>Thailand</option>
+<option>Timor-Leste</option>
+<option>Togo</option>
+<option>Tonga</option>
+<option>Trinidad and Tobago</option>
+<option>Tunisia</option>
+<option>Turkey</option>
+<option>Turkmenistan</option>
+<option>Tuvalu</option>
+<option>Uganda</option>
+<option>Ukraine</option>
+<option>United Arab Emirates</option>
+<option>United Kingdom</option>
+<option>United States</option>
+<option>Uruguay</option>
+<option>Uzbekistan</option>
+<option>Vanuatu</option>
+<option>Vatican City</option>
+<option>Venezuela</option>
+<option>Vietnam</option>
+<option>Yemen</option>
+<option>Zambia</option>
+<option>Zimbabwe</option>
+        </select>
+    </div>
+
+    <!-- hidden settings -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Kairos Application">
+
+    <button type="submit" class="submit-btn">SUBMIT</button>
+
+</form>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<section class="footer">
+    <img src="img/bottom_logo.png" height="170">
+
+    <div class="contact">
+        <p>EMAIL: SEBASTAIN@GMAIL.COM</p>
+        <p>WHATSAPP: 0986553322</p>
+        <p>@THE_KAIROSINSTITUTE</p>
+    </div>
+
+    <p class="copyright">
+        © 2026 Kairos Language Institute | Developed & Designed
+    </p>
+</section>
 </body>
 </html>

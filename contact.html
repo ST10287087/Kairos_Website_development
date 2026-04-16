@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alice&display=swap" rel="stylesheet">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact us</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alice&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
     font-family: 'Alice', serif;
     background: white;
     overflow-x: hidden;
-    padding-top: 80px; /* space for fixed navbar */
+    padding-top: 80px;
 }
 
-/* NAVBAR */
+/* NAVBAR (UNCHANGED) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; /* reduced padding to fit all links */
+    padding: 15px 30px;
     background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: top 0.3s ease;
     box-sizing: border-box;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px; /* space between links */
-    flex-wrap: nowrap; /* no wrapping, keeps them in one line */
+    gap: 30px;
 }
 
 .nav-links a {
@@ -37,10 +41,8 @@ body {
     color: black;
     font-size: 18px;
     position: relative;
-    white-space: nowrap; /* prevent text from breaking */
 }
 
-/* underline active page */
 .nav-links a.active::after {
     content: "";
     position: absolute;
@@ -50,26 +52,140 @@ body {
     height: 1px;
     background: black;
 }
-/* RESPONSIVE NAVBAR */
-@media (max-width: 1200px) {
-    .nav-links {
-        gap: 20px;
-    }
+
+/* HERO */
+.hero {
+    background: #8B0000;
+    height: 420px;
+    border-bottom-left-radius: 50% 120px;
+    border-bottom-right-radius: 50% 120px;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
 }
 
-@media (max-width: 900px) {
-    .nav-links {
-        gap: 15px;
+.hero h1 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 60px;
+    color: white;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: black;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.contact-section h2 {
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-section h2 span {
+    color: #8B0000;
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* INFO */
+.info-row {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    margin-top: 60px;
+}
+
+.info-box {
+    text-align: center;
+    max-width: 300px;
+}
+
+.phone-title {
+    font-family: 'Alfa Slab One';
+    color: #8B0000;
+    font-size: 32px;
+}
+
+.email-title {
+    font-family: 'Alfa Slab One';
+    color: #2C6E9F;
+    font-size: 32px;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+.info-box h3 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* CLICKABLE CONTACT LINKS */
+.contact-link {
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #8B0000;
+    text-decoration: underline;
+}
+
+/* FOOTER (UNCHANGED) */
+.footer {
+    background: #8B0000;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 120px;
+}
+
+.footer .contact {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.footer .copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+/* RESPONSIVE */
+@media(max-width: 800px) {
+    .hero {
+        padding-left: 30px;
+        height: 350px;
     }
-    .navbar {
-        padding: 15px 20px;
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        gap: 40px;
     }
 }
 </style>
-<head>
-    <title>Contact us</title>
-   
 </head>
+
 <body>
 
 <!-- NAVBAR -->
@@ -77,13 +193,62 @@ body {
     <img src="img/logo.png" height="50">
     <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="about.html" >About us</a>
+        <a href="about.html">About us</a>
         <a href="careers.html">Careers</a>
-        <a href="contact.html"class="active">Contact us</a>
+        <a href="contact.html" class="active">Contact us</a>
     </div>
 </div>
 
-<h1>Contact us Page</h1>
+<!-- HERO -->
+<div class="hero">
+    <h1>
+        GET IN TOUCH WITH <br>
+        <span>KAIROS</span> TODAY!
+    </h1>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section">
+    <h2><span>C</span>ontact Us</h2>
+    <p>Your journey to confident communication starts here.</p>
+
+    <div class="info-row">
+        <div class="info-box">
+            <div class="phone-title">Phone</div>
+            <p>Email us and we'll get back to you quickly.</p>
+            <h3>
+                <a href="https://wa.me/16156007756" target="_blank" class="contact-link">
+                    +1(615)-600-7756
+                </a>
+            </h3>
+        </div>
+
+        <div class="info-box">
+            <div class="email-title">Email</div>
+            <p>Call us for direct support and guidance.</p>
+            <h3>
+                <a href="mailto:kairoslanguageinstitute7@gmail.com" class="contact-link">
+                    kairoslanguageinstitute7@gmail.com
+                </a>
+            </h3>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<section class="footer">
+    <img src="img/bottom_logo.png" height="170">
+
+    <div class="contact">
+        <p>EMAIL: SEBASTAIN@GMAIL.COM</p>
+        <p>WHATSAPP:  +1(615)-600-7756</p>
+        <p>INSTRAGRAM: @kairoslanguageinstitute7</p>
+    </div>
+
+    <p class="copyright">
+        © 2026 Kairos Language Institute | Developed & Designed by OrcaHalo studios
+    </p>
+</section>
 
 </body>
 </html>

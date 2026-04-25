@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos Admin Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Montserrat';
+    display: flex;
+}
+
+/* SIDEBAR (UNCHANGED) */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    font-family: 'Alfa Slab One';
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.sidebar a {
+    display: block;
+    margin: 14px 0;
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* MAIN */
+.main {
+    margin-left: 250px;
+    padding: 40px 60px;
+    width: calc(100% - 250px);
+}
+
+/* HEADER */
+.header h1 {
+    font-family: 'Alfa Slab One';
+    font-weight: 400;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #6D0101;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background: #f5f5f5;
+}
+
+/* CHECKBOX */
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+/* 3 DOT MENU */
+.menu {
+    display: none;
+    position: fixed;
+    right: 30px;
+    top: 120px;
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu.show {
+    display: block;
+}
+
+/* PROFILE */
+.profile {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.profile h2 {
+    font-family: 'Alfa Slab One';
+}
+
+.profile a {
+    display: block;
+    margin-top: 6px;
+    color: #2b6cb0;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR (UNCHANGED) -->
+<div class="sidebar">
+    <h2 onclick="showSection('applications')">KAIROS WEBSITE</h2>
+
+    <a onclick="showSection('applications')">Applications</a>
+    <a onclick="showSection('registrations')">Registrations</a>
+    <a onclick="showSection('trash')">Trash</a>
+
+    <hr>
+
+    <a href="index.html">Homepage</a>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="header">
+    <h1>Welcome Sebastian</h1>
+</div>
+
+<div id="menu" class="menu" onclick="deleteSelected()">⋮ Delete Selected</div>
+
+<div id="content"></div>
+
+</div>
+
+<script>
+
+let currentSection = "applications";
+
+let applications = [
+    {
+        id:1,
+        name:"Anna",
+        surname:"Brown",
+        email:"anna@gmail.com",
+        phone:"987654321",
+        country:"SA",
+        address:"Durban",
+        message:"Teacher",
+        cv:"cv.pdf",
+        video:"video.mp4",
+        cert:"cert.pdf"
+    }
+];
+
+let registrations = [
+    {
+        id:2,
+        name:"Kyle",
+        surname:"Smith",
+        email:"kyle@gmail.com",
+        phone:"123456789",
+        date:"2026-05-01",
+        message:"Student"
+    }
+];
+
+let trash = [];
+
+/* SHOW DELETE MENU */
+document.addEventListener("change",()=>{
+    let checked = document.querySelectorAll("input[type='checkbox']:checked");
+    document.getElementById("menu").classList.toggle("show", checked.length > 0);
+});
+
+/* DELETE SELECTED */
+function deleteSelected(){
+    let checked = document.querySelectorAll("input[type='checkbox']:checked");
+
+    checked.forEach(box=>{
+        let id = parseInt(box.dataset.id);
+        let type = box.dataset.type;
+
+        let arr = type==="application" ? applications : registrations;
+        let index = arr.findIndex(x=>x.id===id);
+
+        if(index !== -1){
+            trash.push({
+                ...arr[index],
+                type:type
+            });
+
+            arr.splice(index,1);
+        }
+    });
+
+    showSection(currentSection);
+    document.getElementById("menu").classList.remove("show");
+}
+
+/* SHOW SECTIONS */
+function showSection(section){
+    currentSection = section;
+    const c = document.getElementById("content");
+
+    if(section==="applications"){
+        c.innerHTML = `
+        <table>
+        <tr><th></th><th>Name</th><th>Email</th><th>Country</th></tr>
+
+        ${applications.map(u=>`
+        <tr onclick="openProfile('application',${u.id})">
+            <td onclick="event.stopPropagation()">
+                <input type="checkbox" data-id="${u.id}" data-type="application">
+            </td>
+            <td>${u.name} ${u.surname}</td>
+            <td>${u.email}</td>
+            <td>${u.country}</td>
+        </tr>`).join("")}
+        </table>`;
+    }
+
+    if(section==="registrations"){
+        c.innerHTML = `
+        <table>
+        <tr><th></th><th>Name</th><th>Email</th><th>Date</th></tr>
+
+        ${registrations.map(u=>`
+        <tr onclick="openProfile('registration',${u.id})">
+            <td onclick="event.stopPropagation()">
+                <input type="checkbox" data-id="${u.id}" data-type="registration">
+            </td>
+            <td>${u.name} ${u.surname}</td>
+            <td>${u.email}</td>
+            <td>${u.date}</td>
+        </tr>`).join("")}
+        </table>`;
+    }
+
+    /* ✅ FIXED TRASH (NOW FULLY WORKING) */
+    if(section==="trash"){
+        c.innerHTML = `
+        <h2>Trash</h2>
+
+        ${trash.length === 0 ? `<p>No deleted items</p>` : trash.map((u,i)=>`
+            <div onclick="viewTrash(${i})" style="
+                padding:15px;
+                border:1px solid #ddd;
+                margin:10px 0;
+                border-radius:10px;
+                cursor:pointer;
+            ">
+                <strong>${u.name} ${u.surname}</strong><br>
+                <small>Type: ${u.type}</small>
+            </div>
+        `).join("")}
+        `;
+    }
+}
+
+/* OPEN PROFILE (NORMAL DATA) */
+function openProfile(type,id){
+    const c=document.getElementById("content");
+
+    const list = type==="application" ? applications : registrations;
+    const u = list.find(x=>x.id===id);
+
+    c.innerHTML = `
+    <div class="profile">
+        <div onclick="showSection('${type==="application"?"applications":"registrations"}')" style="cursor:pointer;color:#6D0101;">← Back</div>
+
+        <h2>${u.name} ${u.surname}</h2>
+        <p>${u.email}</p>
+
+        ${type==="application" ? `
+            <p>${u.phone}</p>
+            <p>${u.country}</p>
+            <p>${u.address}</p>
+            <p>${u.message}</p>
+
+            <a href="${u.cv}" target="_blank">CV</a>
+            <a href="${u.video}" target="_blank">Video</a>
+            <a href="${u.cert}" target="_blank">Certificates</a>
+        ` : `
+            <p>${u.date}</p>
+            <p>${u.message}</p>
+        `}
+    </div>`;
+}
+
+/* ✅ FIXED TRASH VIEW */
+function viewTrash(i){
+    const c=document.getElementById("content");
+    const u = trash[i];
+
+    c.innerHTML = `
+    <div class="profile">
+        <div onclick="showSection('trash')" style="cursor:pointer;color:#6D0101;">← Back</div>
+
+        <h2>${u.name} ${u.surname}</h2>
+        <p>Type: ${u.type}</p>
+        <p>Email: ${u.email || "-"}</p>
+        <p>Phone: ${u.phone || "-"}</p>
+        <p>Message: ${u.message || "-"}</p>
+
+        <p><em>This will be permanently deleted after 30 days (backend rule)</em></p>
+    </div>`;
+}
+
+showSection("applications");
+
+</script>
+
+</body>
+</html>

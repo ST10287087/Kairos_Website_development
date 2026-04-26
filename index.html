@@ -5,23 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kairos Language Institute</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alice&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alice&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <style>
 body {
     margin: 0;
     font-family: 'Alice', serif;
     background: white;
     overflow-x: hidden;
-    padding-top: 80px; /* space for fixed navbar */
+    padding-top: 80px;
 }
 
-/* NAVBAR */
+/* NAVBAR - NOT TOUCHED */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; /* reduced padding to fit all links */
+    padding: 15px 30px;
     background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
@@ -34,8 +36,8 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 30px; /* space between links */
-    flex-wrap: nowrap; /* no wrapping, keeps them in one line */
+    gap: 30px;
+    flex-wrap: nowrap;
 }
 
 .nav-links a {
@@ -43,10 +45,9 @@ body {
     color: black;
     font-size: 18px;
     position: relative;
-    white-space: nowrap; /* prevent text from breaking */
+    white-space: nowrap;
 }
 
-/* underline active page */
 .nav-links a.active::after {
     content: "";
     position: absolute;
@@ -57,200 +58,378 @@ body {
     background: black;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-    background: #1f6796;
+    background: #176f9f;
     color: white;
     position: relative;
-    padding: 80px 50px 300px 50px;
-    border-bottom-left-radius: 120% 220px;
-    border-bottom-right-radius: 160% 380px;
-    box-shadow: 0 55px 90px rgba(0,0,0,0.5);
+    min-height: 760px; 
+    padding: 60px 60px 220px; 
+    border-bottom-left-radius: 50% 90px;
+    border-bottom-right-radius: 40% 90px;
+    box-shadow: 0 25px 35px rgba(0,0,0,0.25);
     overflow: hidden;
 }
 
 .hero-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
-.hero-text h1 {
+.hero h1 {
     font-family: 'Alfa Slab One', serif;
-    font-size: 65px;
-    line-height: 1.1;
+    font-size: 85px;
+    line-height: 1.15;
+    margin: 0;
+   letter-spacing: 4px;
 }
 
-.hero-text .kairos {
+.hero h1 span {
     color: black;
 }
 
-.hero-text p {
+.hero p {
     color: black;
-    max-width: 400px;
+    font-size: 17px;
+    width: 430px;
+	 font-size: 21px;
+    margin-top: 8px;
 }
 
 .hero img {
-    width: 320px;
+    position: absolute;
+    width: 360px;
+    right: 100px;
+    top: 40px; 
 }
 
 .cta {
     position: absolute;
-    right: 60px;
-    bottom: 120px;
-    text-align: right;
-}
-
-.cta h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.register-btn {
-    background: #8B0000;
-    color: white;
-    padding: 12px 35px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-family: 'Alice', serif;
-}
-
-/* WHY SECTION */
-.why-section {
-    background: white;
-    padding: 180px 50px 120px 50px; /* more spacing from hero */
-    text-align: center;
-}
-
-.why-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    margin-bottom: 60px;
+    right: 350px;
+    bottom: 200px;
     text-align: left;
 }
 
-.black { color: black; }
-.k { color: #6D0101; }
-.airos { color: #1268A3; }
+.cta h2 {
+    font-size: 40px;
+    line-height: 1.15;
+    font-weight: normal;
+    margin: 0 0 15px;
+}
+
+.cta small {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+	font-family: 'Montserrat', serif;
+}
+
+.red-btn {
+    background: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 28px;
+    font-weight: bold;
+	font-size: 15px:
+    cursor: pointer;
+	font-family: 'Alice', serif;
+	letter-spacing: 1px;
+}
+
+/* WHY */
+.why {
+    padding: 90px 80px 110px;
+}
+
+.why h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.red {
+    color: #8b0000;
+}
+
+.blue {
+    color: #1476b6;
+}
 
 .cards {
     display: flex;
     justify-content: center;
-    gap: 70px;
-    flex-wrap: wrap;
+    gap: 45px;
 }
 
 .card {
-    width: 280px;
-    height: 360px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 170px;
+    height: 205px;
+    border: 2px solid #ddd;
+    border-radius: 13px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    text-align: center;
 }
 
 .card img {
-    width: 180px;
-    margin-bottom: 20px;
+    width: 70px;
 }
 
 .card p {
-    font-family: 'Alice', serif;
-    font-size: 18px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
-/* WELCOME SECTION - SLANTED BACKGROUND WITH UPRIGHT TEXT */
-.welcome-section {
-    position: relative;
-    background: #CAD4EA;
-    width: 120vw;
-    height: 1000px;
-    margin-left: -10vw;
-    margin-top: 120px;
-    transform: rotate(6deg); /* slight slant */
+/* WELCOME */
+.welcome {
+    background: #cbd7ee;
+    transform: skewY(5deg);
+    margin-top: 40px;
+    padding: 80px 60px;
+}
+
+.welcome-inner {
+    transform: skewY(-5deg);
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    gap: 45px;
 }
 
-.welcome-content {
-    display: flex;
-    gap: 80px;
-    align-items: center;
-    transform: rotate(-6deg); /* keeps text upright */
-    padding: 80px 120px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.welcome-image {
-    flex: 0 0 523px;
-}
-
-.welcome-image img {
-    width: 523px;
-    height: 785px;
-    object-fit: cover;
-    border-radius: 15px;
+.welcome-img {
+    width: 320px;
+    margin-left: 40px;
 }
 
 .welcome-text {
-    flex: 1;
+    max-width: 560px;
 }
 
-.welcome-heading {
+.welcome-text h3 {
     font-family: 'Alfa Slab One', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: black;
-    margin: 0 0 10px 0;
+    font-size: 32px;
+    margin: 0;
 }
 
-.welcome-kairos {
+.welcome-text h1 {
     font-family: 'Alfa Slab One', serif;
-    font-size: 52px;
-    margin: 0 0 20px 0;
+    font-size: 43px;
+    margin: 5px 0 25px;
 }
 
-.welcome-kairos .k { color: #6D0101; }
-.welcome-kairos .l { color: #6D0101; }
-.welcome-kairos .airos { color: #1268A3; }
-.welcome-kairos .language { color: #1268A3; }
-.welcome-kairos .institute { color: black; }
+.welcome-text p {
+    font-size: 21px;
+    line-height: 1.25;
+}
 
-.welcome-paragraph {
-    font-family: 'Alice', serif;
+.apply-area {
+    text-align: right;
+    margin-top: 25px;
+}
+
+.apply-area b {
+    display: block;
+    margin-bottom: 8px;
     font-size: 18px;
-    width: 858px;
-    line-height: 1.6;
-    margin-bottom: 20px;
 }
 
-.team-cta {
-    font-size: 22px;
-    color: black;
-    margin-bottom: 15px;
+/* PROVIDE */
+.provide {
+    display: flex;
+    background: #c20d0d;
+    color: white;
+    margin-top: 100px;
+    overflow: hidden;
 }
 
-/* RESPONSIVE NAVBAR */
-@media (max-width: 1200px) {
-    .nav-links {
-        gap: 20px;
+.provide-wrapper {
+    display: flex;
+    justify-content: flex-start; 
+}
+
+
+/* LEFT TEXT */
+.provide-left {
+    width: 68%;
+    padding: 40px 35px;
+}
+
+.provide-left h2 {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+.provide-left h2 span {
+    color: #1fa3e0;
+}
+
+/* BULLETS */
+.provide-left p {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 17px;
+    margin: 20px 0;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* blue check dot */
+.check {
+    width: 10px;
+    height: 10px;
+    background: #1fa3e0;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 12px;
+    margin-top: 6px;
+}
+
+/* RIGHT IMAGE SIDE */
+.provide-right {
+    width: 32%;
+    background: white;
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 120px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.provide-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* JOIN */
+.join {
+    padding: 65px 60px 140px;
+    text-align: center;
+}
+
+.join h2 {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 45px;
+    margin: 0;
+}
+
+.join p {
+    font-size: 18px;
+    margin: 8px 0 35px;
+}
+
+.join-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.books {
+    width: 300px;
+}
+
+.form-box {
+    width: 340px;
+    background: #f8fdff;
+    border: 1px solid #c8d1d6;
+    border-radius: 22px;
+    padding: 30px 25px;
+}
+
+.form-box input,
+.form-box textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px;
+    border: none;
+    border-bottom: 1px solid #9aa6ac;
+    background: transparent;
+    margin-bottom: 14px;
+    font-family: 'Inter', serif;
+}
+
+.form-box textarea {
+    border: 1px solid #c8d1d6;
+    height: 58px;
+}
+
+.form-box small {
+    color: red;
+    display: block;
+    text-align: left;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    background: #05bdc9;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+    background: #8B0000;
+    color: white;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+    position: relative;        
+}
+
+.contact {
+    margin-top: 20px;
+    text-align: left;
+	font-size: 20px;
+}
+
+/* Move copyright to bottom right */
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+/* RESPONSIVE */
+@media (max-width: 800px) {
+    .hero-content,
+    .welcome-inner,
+    .provide,
+    .join-inner {
+        flex-direction: column;
     }
-}
 
-@media (max-width: 900px) {
-    .nav-links {
-        gap: 15px;
+    .hero img {
+        margin: 30px 0 0;
     }
-    .navbar {
-        padding: 15px 20px;
+
+    .cta {
+        position: static;
+        margin-top: 40px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .provide-left,
+    .provide-right {
+        width: 100%;
     }
 }
 </style>
@@ -270,63 +449,134 @@ body {
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
     <div class="hero-content">
-        <div class="hero-text">
-            <h1>AT <span class="kairos">KAIROS</span><br>LANGUAGE<br>INSTITUTE</h1>
+        <div>
+            <h1>AT <span>KAIROS</span><br>LANGUAGE<br>INSTITUTE</h1>
             <p>Learn English the smart way with – where digital learning meets real results.</p>
         </div>
-        <img src="student.png">
+
+        <img src="img/student.png" alt="Student">
     </div>
 
     <div class="cta">
         <h2>WE OPEN DOORS<br>THROUGH ENGLISH</h2>
-        <button class="register-btn" onclick="registerNow()">REGISTER</button>
+        <small>ENROL YOUR CHILD TODAY</small>
+        <button class="red-btn">REGISTER</button>
     </div>
-</div>
+</section>
 
-<!-- WHY CHOOSE SECTION -->
-<section class="why-section">
-    <h2 class="why-title">
-        <span class="black">WHY CHOOSE </span>
-        <span class="k">K</span><span class="airos">AIROS</span>?
-    </h2>
+<!-- WHY -->
+<section class="why">
+    <h2>WHY CHOOSE <span class="red">K</span><span class="blue">AIROS</span> ?</h2>
 
     <div class="cards">
         <div class="card">
-            <img src="img1.png" alt="Graphic 1">
-            <p>Engaging, Interactive Lessons</p>
+            <img src="img/img1.png">
+            <p>Engaging, Interactive<br>Lessons</p>
         </div>
+
         <div class="card">
-            <img src="img2.png" alt="Graphic 2">
+            <img src="img/img2.png">
             <p>Expert Guidance</p>
         </div>
+
         <div class="card">
-            <img src="img3.png" alt="Graphic 3">
+            <img src="img/img3.png">
             <p>Real Life Confidence</p>
         </div>
     </div>
 </section>
 
-<!-- WELCOME SECTION -->
-<section class="welcome-section">
-    <div class="welcome-content">
-        <div class="welcome-image">
-            <img src="your-image.png" alt="Team or Student">
-        </div>
+<!-- WELCOME -->
+<section class="welcome">
+    <div class="welcome-inner">
+        <img src="img/boy.png" class="welcome-img">
 
         <div class="welcome-text">
-            <h2 class="welcome-heading">WELCOME TO</h2>
-            <h1 class="welcome-kairos">
-                <span class="k">K</span><span class="airos">AIROS </span><span class="l">L</span><span class="language">ANGUAGE </span><span class="institute">INSTITUTE</span>
+            <h3>Welcome to</h3>
+            <h1>
+                <span class="red">K</span><span class="blue">airos</span>
+                <span class="red">L</span><span class="blue">anguage</span>
+                Institute
             </h1>
-            <p class="welcome-paragraph">
-                At Kairos Language Institute, we believe that learning a new language opens doors to endless opportunities. Our engaging programs and expert instructors ensure every student gains confidence<br>and fluency in a supportive environment. Join us today and start your journey toward global communication!
+
+            <p>
+                Are you searching for a dynamic and encouraging online English learning experience for yourself or your child?
             </p>
-            <h3 class="team-cta">Looking to join our team?</h3>
-            <button class="register-btn" onclick="applyNow()">Apply Now</button>
+
+            <p>
+                At Kairos Language Institute, we are passionate about helping learners grow in confidence and ability. Our skilled and caring educators provide structured, interactive lessons designed to meet individual needs and support every learner’s journey toward English success.
+            </p>
+
+            <div class="apply-area">
+                <b>looking to join our team?</b>
+                <button class="red-btn">APPLY NOW</button>
+            </div>
         </div>
     </div>
+</section>
+
+<!-- WHAT WE PROVIDE -->
+<div class="provide-wrapper">
+<section class="provide">
+    <div class="provide-left">
+        <h2>WHAT WE <span class="blue">PROVIDE</span></h2>
+
+       <p><span class="check"></span>Customized English Lessons – Tailored to each student’s learning style and needs.</p>
+
+<p><span class="check"></span>Conversation Practice – Build confidence and fluency in real-life English situations.</p>
+
+<p><span class="check"></span>Reading & Writing Enhancement – Strengthen critical thinking and self-expression.</p>
+
+<p><span class="check"></span>Flexible Timetable – Learn at your own pace with schedules that suit you.</p>
+
+<p><span class="check"></span>Grammar & Vocabulary Building – Master the fundamentals of English effectively.</p>
+    </div>
+
+    <div class="provide-right">
+        <img src="img/child.png" alt="Child learning">
+    </div>
+</section>
+ </div>
+<!-- JOIN -->
+<section class="join">
+    <h2>JOIN <span class="blue">US</span> TODAY!</h2>
+    <p>
+        Start building your English skills today. Get in touch to find out more<br>
+        about our courses and book a trial class with one of our passionate<br>
+        instructors.
+    </p>
+
+    <div class="join-inner">
+        <img src="img/books.png" class="books">
+
+        <form class="form-box">
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <input type="date">
+            <input type="tel" placeholder="+27     Phone Number">
+            <input type="email" placeholder="email@gmail">
+      
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<section class="footer">
+    <img src="img/bottom_logo.png" height="170">
+
+    <div class="contact">
+        <p>EMAIL: kairoslanguageinstitute7@gmail.com</p>
+        <p>WHATSAPP:  +1(615)-600-7756</p>
+        <p>@kairoslanguageinstitute7</p>
+    </div>
+
+    <p class="copyright">
+        © 2026 Kairos Language Institute | Developed & Designed by OrcaHalo Studios
+    </p>
 </section>
 
 <script>
@@ -345,12 +595,13 @@ const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop) {
-        navbar.style.top = "-100px"; // hide
+        navbar.style.top = "-100px";
     } else {
-        navbar.style.top = "0"; // show
+        navbar.style.top = "0";
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 </script>
+
 </body>
 </html>
